@@ -1,57 +1,47 @@
 /* ************************************************************************** */
 /*                                                                            */
 /*                                                        :::      ::::::::   */
-/*   read_map.c                                         :+:      :+:    :+:   */
+/*   dupl_map.c                                         :+:      :+:    :+:   */
 /*                                                    +:+ +:+         +:+     */
 /*   By: mamazzal <mamazzal@student.42.fr>          +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
-/*   Created: 2023/08/17 15:14:05 by mamazzal          #+#    #+#             */
-/*   Updated: 2023/08/18 20:24:40 by mamazzal         ###   ########.fr       */
+/*   Created: 2023/08/20 11:02:42 by mamazzal          #+#    #+#             */
+/*   Updated: 2023/08/20 20:33:29 by mamazzal         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
 #include "cub3D.h"
 
-int	count_lines(char *mapfile)
+char	*str_copy(char *str)
 {
 	int		count;
-	int		fd;
-	char	*line;
-	char	**dst;
+	char	*dst;
 
-	fd = open(mapfile, O_RDONLY);
-	if (fd < 0)
-		error_fd_not_found("Error\nFILE NOT FOUND\n");
-	count = 1;
-	line = get_next_line(fd);
-	while (line)
+	count = 0;
+	dst = malloc(sizeof(char) * (ft_strlen(str) + 1));
+	while (str[count])
 	{
-		free(line);
-		line = get_next_line(fd);
+		dst[count] = str[count];
 		count++;
 	}
-	close(fd);
-	return (count);
+	dst[count] = '\0';
+	return (dst);
 }
 
-char	**read_map(char *mapfile)
+char	**duplcate_map(char **oldmap)
 {
 	int		count;
-	int		fd;
-	char	*line;
+	int		size;
 	char	**dst;
 
-	dst = malloc(sizeof(char *) * (count_lines(mapfile) + 1));
+	size = strlen_2d_array(oldmap);
+	dst = malloc(sizeof(char *) * (size + 1));
 	count = 0;
-	fd = open(mapfile, O_RDONLY);
-	line = get_next_line(fd);
-	while (line)
+	while (oldmap[count])
 	{
-		dst[count] = line;
-		line = get_next_line(fd);
+		dst[count] = str_copy(oldmap[count]);
 		count++;
 	}
 	dst[count] = 0;
-	close(fd);
 	return (dst);
 }

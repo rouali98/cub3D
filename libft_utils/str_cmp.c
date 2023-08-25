@@ -1,19 +1,25 @@
 /* ************************************************************************** */
 /*                                                                            */
 /*                                                        :::      ::::::::   */
-/*   ft_isdigit.c                                       :+:      :+:    :+:   */
+/*   str_cmp.c                                          :+:      :+:    :+:   */
 /*                                                    +:+ +:+         +:+     */
-/*   By: mamazzal <mamazzal@student.42.fr>          +#+  +:+       +#+        */
+/*   By: rouali <rouali@student.42.fr>              +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
-/*   Created: 2023/08/17 19:34:35 by mamazzal          #+#    #+#             */
-/*   Updated: 2023/08/17 19:36:26 by mamazzal         ###   ########.fr       */
+/*   Created: 2023/08/18 19:49:43 by mamazzal          #+#    #+#             */
+/*   Updated: 2023/08/18 22:25:26 by rouali           ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
-#include "cub3D.h"
+#include "../cub3D.h"
 
-int ft_isdigit(int nbr) {
-  if (nbr < '0' || nbr > '9')
-    return 0;
-  return 1;
+int	str_cmp(char *s1, char *s2)
+{
+	int	i;
+
+	i = 0;
+	while ((s1[i] && s2[i]) && s1[i] == s2[i])
+		i++;
+	if (s1[i] == '\0' && s2[i] == '\0')
+		return (1);
+	return (0);
 }
