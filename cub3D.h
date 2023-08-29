@@ -6,7 +6,7 @@
 /*   By: rouali <rouali@student.42.fr>              +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2023/08/18 20:27:54 by mamazzal          #+#    #+#             */
-/*   Updated: 2023/08/25 19:41:33 by rouali           ###   ########.fr       */
+/*   Updated: 2023/08/29 01:08:33 by rouali           ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -18,12 +18,14 @@
 # include <stdlib.h>
 # include "./minilibx/mlx.h"
 # include "./gnln/get_next_line.h"
+#include <math.h>
 
-#ifndef MOVE_SPEED
-# define MOVE_SPEED 0.1
-#endif
-
+# define MOVE_SPEED 0.3
+# define ROTATE_SPEED 5
 #define RADIAN 0.0174533
+#define PI 3.14
+#define ZOOM 8
+
 
 /*PAESING STRUCTER*/
 typedef struct t_check_rgb
@@ -97,6 +99,13 @@ typedef struct t_point
 	float	y;
 } t_point;
 
+typedef struct t_rays_point
+{
+	float x;
+	float y;
+	float dis;
+} t_rays_point;
+
 typedef struct s_vars
 {
 	float	p_pos_x;
@@ -106,10 +115,13 @@ typedef struct s_vars
 	void	*mlx;
 	void	*win;
 	t_pixle	*img;
+	t_rays_point rays_point;
 	t_dis	dis;
+	t_point p1;
 	char	*add;
 	int		key;
 	int	win_size;
+	float fov;
 }				t_vars;
 /*END MLX UTILIS STRUCTER*/
 
@@ -141,6 +153,8 @@ int		is_it_rgb(char c1, t_pars *pars, char **map);
 char	**duplcate_map(char **oldmap);
 void	print_map(t_data *data, char **map);
 void ft_move(t_vars *vars);
+void	draw_floor(t_vars *vars);
+void	draw_ceil(t_vars *vars);
 // check MAP
 int		check_south(char **sorth);
 void	check_nswe(t_data *data);
@@ -161,8 +175,8 @@ int		f_strlen(char **map);
 int		ft_close(void);
 int		key_hook(int keycode, t_vars *vars);
 void	ft_move(t_vars *vars);
-void	mlx_init_func(t_vars vars, t_data *data);
+void	mlx_init_func(t_vars *vars, t_data *data);
 
 void	my_mlx_pixel_put(t_vars *vars, int x, int y, int color);
-
+void	put_pxl_mini_map(t_vars *vars);
 #endif
