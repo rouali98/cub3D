@@ -3,10 +3,10 @@
 /*                                                        :::      ::::::::   */
 /*   draw_mini_map.c                                    :+:      :+:    :+:   */
 /*                                                    +:+ +:+         +:+     */
-/*   By: mamazzal <mamazzal@student.42.fr>          +#+  +:+       +#+        */
+/*   By: rouali <rouali@student.42.fr>              +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2023/08/28 18:15:07 by mamazzal          #+#    #+#             */
-/*   Updated: 2023/08/28 20:07:03 by mamazzal         ###   ########.fr       */
+/*   Updated: 2023/09/02 23:14:28 by rouali           ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -159,7 +159,7 @@ void	put_pxl_mini_map(t_vars *vars)
 		while (vars->map[(int)dir.y][(int)dir.x])
 		{
 			if (vars->map[(int)dir.y][(int)dir.x] == '1')
-				draw (vars, create_trgb(140, 136, 247));
+				draw (vars, create_trgb(31, 31, 31));
 			else if (vars->map[(int)dir.y][(int)dir.x] == '0')
 				draw (vars, create_trgb(255, 255, 255));
 			dir.x++;

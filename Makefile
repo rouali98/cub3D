@@ -6,7 +6,7 @@
 #    By: rouali <rouali@student.42.fr>              +#+  +:+       +#+         #
 #                                                 +#+#+#+#+#+   +#+            #
 #    Created: 2023/08/17 12:13:49 by mamazzal          #+#    #+#              #
-#    Updated: 2023/08/29 01:20:24 by rouali           ###   ########.fr        #
+#    Updated: 2023/09/02 23:09:44 by rouali           ###   ########.fr        #
 #                                                                              #
 # **************************************************************************** #
 
@@ -31,9 +31,12 @@ OBJ = $(SRC:.c=.o)
 
 CC = cc
 
-CFLAGS= -Wall -Wextra -Werror #-fsanitize=address -g
+CFLAGS= -Wall -Wextra -Werror  -fsanitize=address -g -Ofast -O3
 
 all: $(NAME)
+
+run :
+	make re && ./cub3D maps/map.cub
 
 $(NAME): $(OBJ)
 	@$(CC) $(CFLAGS) $(OBJ) $(GNLN) $(MLX) $(MLX_FLAGS) -o $(NAME)

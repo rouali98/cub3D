@@ -6,7 +6,7 @@
 /*   By: rouali <rouali@student.42.fr>              +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2023/08/18 20:27:54 by mamazzal          #+#    #+#             */
-/*   Updated: 2023/08/29 01:08:33 by rouali           ###   ########.fr       */
+/*   Updated: 2023/09/02 23:09:06 by rouali           ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -20,11 +20,12 @@
 # include "./gnln/get_next_line.h"
 #include <math.h>
 
-# define MOVE_SPEED 0.3
-# define ROTATE_SPEED 5
+# define MOVE_SPEED 0.5
+# define ROTATE_SPEED 8
 #define RADIAN 0.0174533
 #define PI 3.14
 #define ZOOM 8
+
 
 
 /*PAESING STRUCTER*/
@@ -106,6 +107,12 @@ typedef struct t_rays_point
 	float dis;
 } t_rays_point;
 
+typedef struct t_img_size
+{
+	float w;
+	float h;
+} t_img_size;
+
 typedef struct s_vars
 {
 	float	p_pos_x;
@@ -115,6 +122,7 @@ typedef struct s_vars
 	void	*mlx;
 	void	*win;
 	t_pixle	*img;
+	t_pixle	*img_pix;
 	t_rays_point rays_point;
 	t_dis	dis;
 	t_point p1;
@@ -122,6 +130,9 @@ typedef struct s_vars
 	int		key;
 	int	win_size;
 	float fov;
+	float	end_x;
+	float	end_y;
+	t_img_size img_size;
 }				t_vars;
 /*END MLX UTILIS STRUCTER*/
 
