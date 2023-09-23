@@ -1,7 +1,10 @@
 # cub3D - My First RayCaster with miniLibX
-
 ![cub3D Demo](demo.gif)
 
+## Contributors :
+* [**Ouali Rida**](https://github.com/rouali98)
+* [**Amazzal Amine**](https://github.com/AMAZZAL-AMINE)
+  
 ## Table of Contents
 - [Introduction](#introduction)
 - [Project Description](#project-description)
@@ -38,7 +41,7 @@ Cub3D aims to enhance your programming skills in C, algorithms, and graphics des
 ### Installation
 1. Clone the repository:
    ```bash
-   git clone https://github.com/your-username/cub3D.git
+   git clone https://github.com/rouali98/cub3D.git
    cd cub3D
    
 ## Compilation
@@ -52,31 +55,27 @@ make
 To run the program, use a scene description file:
 
 ```bash
-./cub3D path/to/your/map.cub
+./cub3D maps/map.cub
 ```
 Explore the maze, look around, and enjoy your 3D adventure!
 
 ## Features
-Ray-Casting Rendering
-Textured Walls
-Floor and Ceiling Colors
-Smooth Window Management
-Player Movement Controls
-Map Parsing
-
+- Ray-Casting Rendering
+- Textured Walls
+- and Ceiling Colors
+- Smooth Window Management
+- Player Movement Controls
+- Map Parsing
+  
 ## Controls
-Arrow keys: Look left and right
-W, A, S, D keys: Move within the maze
-ESC key: Quit the program
+**Arrow keys:** Look left and right
 
-## Scene Description
-Customize your scene using a .cub file. Refer to the Common Instructions section in the project description for details on scene description file format.
+**W, A, S, D keys:** Move within the maze
 
-## Contributing
-Contributions are welcome! Feel free to open issues or pull requests for improvements, bug fixes, or additional features.
+**ESC key:** Quit the program
 
 ## License
-This project is licensed under the MIT License.
+This project is licensed under the **MIT License**.
 
 Happy coding! 🎮
 
